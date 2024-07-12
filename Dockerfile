@@ -1,9 +1,11 @@
-FROM node:18-alpine3.17
+FROM node:16-alpine AS build
 
 WORKDIR /app
 
-ADD package*.json ./ 
+COPY package*.json .
 
 RUN npm install
 
-CMD [ "npm", "start" ]
+COPY . .
+
+RUN npm run build
