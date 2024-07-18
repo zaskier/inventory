@@ -14,17 +14,17 @@ export class Products {
   @Column({ nullable: true })
   Category: string
 
-  @Column({ nullable: true })
-  Promotion: boolean
+  //   @Column({ nullable: true })
+  //   Promotion: boolean
 
-  @Column({ nullable: true })
-  InStock: number
+  //   @Column({ nullable: true })
+  //   InStock: number
 
-  @Column({ nullable: true })
-  OriginalCost: number
+  //   @Column({ nullable: true })
+  //   OriginalCost: number
 
-  @Column({ nullable: true })
-  DiscountedCost: number
+  //   @Column({ nullable: true })
+  //   DiscountedCost: number
 
   // @Column({ nullable: true })
   // Vendor: string
