@@ -1,18 +1,14 @@
-import express, { Express, Request, Response } from 'express'
+const express = require('express')
 import productsRouter from './routes/products'
 import AppDataSource from './config/ormconfig'
 import { Products } from './entity/Products'
-const app: Express = express()
+const app = express()
+const PORT = 4000
 
-app.get('/', (req: Request, res: Response) => {
-  res.status(200).json({ hi: 'XD', resdp: AppDataSource.manager.find(Products) }) //todo move else
-  // res.status(200).json('Hello from the server!!!v1.0.0')//todo uncoment
-})
-
+app.use(express.json())
+app.use(express.urlencoded())
 app.use('/products', productsRouter)
 
-AppDataSource
+app.listen(PORT, () => console.log(`Running Express Server on Port ${PORT}!`))
 
-app.listen(4000, () => {
-  console.log(`App is listening on port 4000`)
-})
+AppDataSource

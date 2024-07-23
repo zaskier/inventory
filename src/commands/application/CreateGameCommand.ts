@@ -10,13 +10,17 @@ export class CreateProduct implements ICommand {
   }
 
   public execute: any = () => {
-    let product: Products = new Products()
+    //todo fix all types
+    let product = new Products()
+    console.log('happening1')
+    for (let key of Object.keys(product)) {
+      console.log(this.product[key])
+      console.log(product[key])
 
-    // for (let key of Object.keys(this.product)) {  //todo uncoment
-    //   product[key] = this.product[key as keyof Products]
-    // }
+      product[key] = this.product[key]
+    }
 
-    const status = AppDataSource.manager
+    const status = AppDataSource.manager //it is new
       .save(product)
       .then(product => {
         console.log(`product added success: ${product.id}`)
@@ -24,6 +28,7 @@ export class CreateProduct implements ICommand {
       })
       .catch(err => {
         console.log(product)
+
         console.log(`error adding product: ${err}`)
         return false
       })

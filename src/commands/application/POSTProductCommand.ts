@@ -1,6 +1,7 @@
 import { Products } from '../../entity/Products'
 import ICommand from '../../common/ICommand'
 import * as DomainProductCommands from '../../domain/products'
+import { CreateProduct } from './CreateGameCommand' //new one
 
 export class POSTCommand implements ICommand {
   private product: Products
@@ -12,7 +13,7 @@ export class POSTCommand implements ICommand {
   public execute = () => {
     const crudCommandFactory = new DomainProductCommands.CRUDCommandFactory()
 
-    const commandName = DomainProductCommands.CRUDCommandFactory.name // todo check
+    const commandName = CreateProduct.name // todo check
 
     const config = {
       commandName,
